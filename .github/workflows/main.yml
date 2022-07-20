@@ -15,7 +15,7 @@ jobs:
         uses: unwrittenmedia/helm3-push-action@v1.0.2
         env:
           SOURCE_DIR: '.'
-          CHART_FOLDER: '.'
+          CHART_FOLDER: './'
           FORCE: 'True'
           CHARTMUSEUM_URL: 'https://museus.bullbenua.ru'
           CHARTMUSEUM_USER: 'klin'
