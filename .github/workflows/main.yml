@@ -12,12 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Push Helm Chart to ChartMuseum
-        uses: bsord/helm-push@4.1.0
-        with:
-          username: 'klin'
-          password: '19120252'
-          registry-url: 'http://94.26.229.183:8080'
-          force: true
-          chart-folder: './'
-
+        uses: unwrittenmedia/helm3-push-action@v1.0.2
+        env:
+          SOURCE_DIR: '.'
+          CHART_FOLDER: '.'
+          FORCE: 'True'
+          CHARTMUSEUM_URL: 'https://museus.bullbenua.ru'
+          CHARTMUSEUM_USER: 'klin'
+          CHARTMUSEUM_PASSWORD: '19120252'
 
