@@ -5,10 +5,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: goodsmileduck/helm-push-action@v2
-      env:
-        CHART_FOLDER: './'
-        CHARTMUSEUM_URL: 'http://94.26.229.183:8080'
-        CHARTMUSEUM_USER: 'klin'
-        CHARTMUSEUM_PASSWORD: '19120252'
+      - name: Push Helm Chart to ChartMuseum
+        uses: bsord/helm-push@4.1.0
+        with:
+          username: 'klin'
+          password: '19120252'
+          registry-url: 'http://94.26.229.183:8080'
+          force: true
+          chart-folder: './'
+
+
