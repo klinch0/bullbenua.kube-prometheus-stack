@@ -1,0 +1,10 @@
+groups:
+- name: prometheusCPUrule
+  rules:
+  - alert: HighRequestLatency
+    expr: sum((1 - sum without (mode) (rate(node_cpu_seconds_total{job="node-exporter", mode=~"idle|iowait|steal"}[5m]))) / ignoring(cpu) group_left count without (cpu, mode) (node_cpu_seconds_total{job="node-exporter", mode="idle"})) > 0.1        
+    for: 10m
+    labels:
+      severity: critical
+    annotations:
+      summary: High request latenc
