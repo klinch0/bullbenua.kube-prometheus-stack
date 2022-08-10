@@ -179,15 +179,18 @@ alertmanager:
         receiver: 'default'
     receivers:
     - name: 'default'
-      webhook_configs:
-      - send_resolved: true
+      telegram_configs:
+      - api_url: https://api.telegram.org
+        bot_token: 5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ
+        chat_id: 655331833
+        disable_notifications: false
         http_config:
-          tls_config:
-            insecure_skip_verify: true
-        url: https://api.telegram.org/bot5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ/alert/655331833
+          follow_redirects: true
+        send_resolved: true
+        parse_mode: ""
 
-    templates:
-    - '/etc/alertmanager/config/*.tmpl'
+        templates:
+        - '/etc/alertmanager/config/*.tmpl'
 
   ## Pass the Alertmanager configuration directives through Helm's templating
   ## engine. If the Alertmanager configuration contains Alertmanager templates,
