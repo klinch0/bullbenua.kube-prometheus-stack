@@ -181,7 +181,7 @@ alertmanager:
         http_config:
           tls_config:
             insecure_skip_verify: true
-        url: https://api.telegram.org/bot5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ/alert/655331833
+        url: "http://telegram-alertmanager:8080/alerts"
 
     templates:
     - '/etc/alertmanager/config/*.tmpl'

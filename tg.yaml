@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: telegram-alertmanager
+   labels:
+     app: telegram
+spec:
+   template:
+     metadata:
+       name: telegram-alertmanager
+       labels:
+         app: telegram
+     spec:
+       containers:
+         - name: telegram-alertmanager
+           image: janwh/alertmanager-telegram
+           ports:
+             - containerPort: 8080
+           env:
+             - name: TELEGRAM_CHAT_ID
+               value: "1188896778"
+             - name: TELEGRAM_TOKEN
+               value: "5578484063:AAG3FDHl6SNXDZYZ-Kw3sLoHLJmZ1WM_Qd8"
+   replicas: 1
+   selector:
+     matchLabels:
+       app: telegram
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ labels:
+   app: telegram
+ name: telegram-alertmanager
+spec:
+ type: ClusterIP
+ selector:
+   app: telegram
+ ports:
+   - protocol: TCP
+     port: 8080
