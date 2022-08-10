@@ -178,19 +178,7 @@ alertmanager:
           alertname: PrometheusBadConfig0228
         receiver: 'default'
     receivers:
-    - name: 'default'
-      telegram_configs:
-      - api_url: https://api.telegram.org
-        bot_token: 5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ
-        chat_id: 655331833
-        disable_notifications: false
-        http_config:
-          follow_redirects: true
-        send_resolved: true
-
-        templates:
-        - '/etc/alertmanager/config/*.tmpl'
-
+    - name: 'null'
   ## Pass the Alertmanager configuration directives through Helm's templating
   ## engine. If the Alertmanager configuration contains Alertmanager templates,
   ## they'll need to be properly escaped so that they are not interpreted by
