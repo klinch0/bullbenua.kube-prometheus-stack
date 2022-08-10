@@ -175,7 +175,7 @@ alertmanager:
           alertname: Watchdog
         receiver: 'default'
       - match:
-          alertname: test-rule
+          alertname: PrometheusBadConfig0228
         receiver: 'default'
     receivers:
     - name: 'default'
@@ -187,7 +187,6 @@ alertmanager:
         http_config:
           follow_redirects: true
         send_resolved: true
-        parse_mode: ""
 
         templates:
         - '/etc/alertmanager/config/*.tmpl'
