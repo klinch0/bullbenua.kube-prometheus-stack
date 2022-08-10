@@ -174,11 +174,18 @@ alertmanager:
       - match:
           alertname: Watchdog
         receiver: 'default'
-      - match:
-          alertname: PrometheusBadConfig0228
-        receiver: 'default'
     receivers:
-    - name: 'null'
+    - name: 'default'
+      webhook_configs:
+      - send_resolved: true
+        http_config:
+          tls_config:
+            insecure_skip_verify: true
+        url: https://api.telegram.org/bot5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ/alert/655331833
+
+    templates:
+    - '/etc/alertmanager/config/*.tmpl'
+
   ## Pass the Alertmanager configuration directives through Helm's templating
   ## engine. If the Alertmanager configuration contains Alertmanager templates,
   ## they'll need to be properly escaped so that they are not interpreted by
