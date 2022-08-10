@@ -167,15 +167,22 @@ alertmanager:
     route:
       group_by: ['job']
       group_wait: 30s
-      group_interval: 5m
-      repeat_interval: 12h
-      receiver: 'null'
+      group_interval: 1m
+      repeat_interval: 30m
+      receiver: 'default'
       routes:
       - match:
           alertname: Watchdog
-        receiver: 'null'
+        receiver: 'default'
     receivers:
-    - name: 'null'
+    - name: 'default'
+      webhook_configs:
+      - send_resolved: true
+        http_config:
+          tls_config:
+            insecure_skip_verify: true
+        url: https://api.telegram.org/bot5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ/alert/655331833
+
     templates:
     - '/etc/alertmanager/config/*.tmpl'
 
