@@ -524,20 +524,12 @@ dashboardProviders: {}
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: {}
-  # default:
-  #   some-dashboard:
-  #     json: |
-  #       $RAW_JSON
-  #   custom-dashboard:
-  #     file: dashboards/custom-dashboard.json
-  #   prometheus-stats:
-  #     gnetId: 2
-  #     revision: 2
-  #     datasource: Prometheus
-  #   local-dashboard:
-  #     url: https://example.com/repository/test.json
-  #     token: ''
+
+dashboards: 
+   default:
+     dotnet:
+       url: https://raw.githubusercontent.com/klinch0/bullbenua.kube-prometheus-stack/master/my-dashboard.json
+       token: 'GHSAT0AAAAAABWRWP2R6BH25AFUICEC32OQYXVPSUQ'
   #   local-dashboard-base64:
   #     url: https://example.com/repository/test-b64.json
   #     token: ''
