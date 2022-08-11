@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kps
+    meta.helm.sh/release-namespace: monitoring
+    prometheus-operator-validated: "true"
+  name: worker-node-memory-usage
+  namespace: monitoring
+spec:
+  groups:
+  - name: prometheus
+    rules:
+    - alert: WorkerNodeMemoryUsage-0
+      annotations: 
+        description: High memory usage
+        summary: Memory usage on node worker (94.26.229.183) more then 80%
+      expr: (node_memory_MemTotal_bytes{job="node-exporter", instance="94.26.229.183:9100"} - node_memory_MemFree_bytes{job="node-exporter", instance="94.26.229.183:9100"} - node_memory_Buffers_bytes{job="node-exporter", instance="94.26.229.183:9100"} - node_memory_Cached_bytes{job="node-exporter", instance="94.26.229.183:9100"}) / node_memory_MemTotal_bytes{job="node-exporter", instance="94.26.229.183:9100"} > 0.8  
+      for: 5s
+      labels:
+        severity: critical
