@@ -2011,7 +2011,7 @@ prometheus:
 
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      
+
     labels: {}
 
     ## Hostnames.
@@ -2037,7 +2037,7 @@ prometheus:
     tls:
        - secretName: prometheus-general-tls
          hosts:
-           - pprometheus.bullbenua.ru
+           - prometheus.bullbenua.ru
 
   ## Configuration for creating an Ingress that will map to each Prometheus replica service
   ## prometheus.servicePerReplica must be enabled
