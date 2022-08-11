@@ -11,11 +11,11 @@ spec:
   groups:
   - name: prometheus
     rules:
-    - alert: test-alert
-      annotations:
-        description: CPU usage on {{  }} more then 10%
-        summary: 
-      expr: 'sum((1 - sum without (mode) (rate(node_cpu_seconds_total{job="node-exporter", mode=~"idle|iowait|steal"}[5m]))) / ignoring(cpu) group_left count without (cpu, mode) (node_cpu_seconds_total{job="node-exporter", mode="idle"})) > 0.1'
+    - alert: WorkerNodeCPUUsage
+      annotations: 
+        description: High cpu usage
+        summary: CPU usage on node worker (94.26.229.183) more then 80%
+      expr: 'sum((1 - sum without (mode) (rate(node_cpu_seconds_total{job="node-exporter", mode=~"idle|iowait|steal", instance=~"94.26.229.183:9100"}[1m]))) / ignoring(cpu) group_left count without (cpu, mode) (node_cpu_seconds_total{job="node-exporter", mode="idle", instance=~"94.26.229.183:9100"})) > 0.80'
       for: 10m
       labels:
         severity: critical
