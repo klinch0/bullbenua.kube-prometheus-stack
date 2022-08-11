@@ -528,8 +528,7 @@ dashboardProviders: {}
 dashboards: 
    default:
      dotnet:
-       url: https://raw.githubusercontent.com/klinch0/bullbenua.kube-prometheus-stack/master/my-dashboard.json
-       token: 'GHSAT0AAAAAABWRWP2R6BH25AFUICEC32OQYXVPSUQ'
+       url: https://raw.githubusercontent.com/klinch0/benua-dashboards/main/dotnet.json
   #   local-dashboard-base64:
   #     url: https://example.com/repository/test-b64.json
   #     token: ''
