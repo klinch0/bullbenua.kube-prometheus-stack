@@ -173,7 +173,10 @@ alertmanager:
       routes:
       - match:
           alertname: Watchdog
-        receiver: 'default'
+          receiver: 'null'
+      - match:
+          alertname: InfoInhibitor
+          receiver: 'null'
     receivers:
     - name: 'default'
       webhook_configs:
