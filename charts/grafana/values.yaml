@@ -561,6 +561,13 @@ grafana.ini:
     mode: console
   grafana_net:
     url: https://grafana.net
+  auth:
+    anonymous: true
+    org_name: "Main Org."
+    org_role: Viewer
+  security:
+    allow_embedding: true
+
 ## grafana Authentication can be enabled with the following values on grafana.ini
  # server:
       # The full public facing url you use in browser, used for redirects and emails
