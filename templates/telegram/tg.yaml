@@ -18,7 +18,7 @@ spec:
              - containerPort: 8080
            env:
              - name: TELEGRAM_CHAT_ID
-               value: "655331833"
+               value: "-1001613251211"
              - name: TELEGRAM_TOKEN
                value: "5267815452:AAHFtLWC4_krPn_W0N3xJrbmdIxz3slsbTQ"
    replicas: 1
